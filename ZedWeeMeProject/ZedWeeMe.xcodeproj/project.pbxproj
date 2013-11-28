@@ -30,8 +30,15 @@
 		03CC6E4A17ACA33600D5CD87 /* Btn_Tilt_Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CC6E4417ACA33600D5CD87 /* Btn_Tilt_Down@2x.png */; };
 		03CC6E4B17ACA33600D5CD87 /* Btn_Tilt_Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CC6E4517ACA33600D5CD87 /* Btn_Tilt_Up@2x.png */; };
 		E437C1A01843C763006C3A89 /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E437C19F1843C763006C3A89 /* Slt.framework */; };
+		E44FF1E91846A36E006C75F7 /* ready_robot.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1E81846A36E006C75F7 /* ready_robot.aiff */; };
+		E44FF1EB1846A545006C75F7 /* tired_robot.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1EA1846A545006C75F7 /* tired_robot.aiff */; };
+		E44FF1F01846A9CF006C75F7 /* battery_040.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1EC1846A9CF006C75F7 /* battery_040.aiff */; };
+		E44FF1F11846A9CF006C75F7 /* battery_060.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1ED1846A9CF006C75F7 /* battery_060.aiff */; };
+		E44FF1F21846A9CF006C75F7 /* battery_080.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1EE1846A9CF006C75F7 /* battery_080.aiff */; };
+		E44FF1F31846A9CF006C75F7 /* battery_100.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E44FF1EF1846A9CF006C75F7 /* battery_100.aiff */; };
 		E47C821F18463437009F7AC9 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E437C19C1843C5F4006C3A89 /* OpenEars.framework */; };
 		E47C82201846345C009F7AC9 /* RoboMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03941C5117D446E800F46BF7 /* RoboMe.framework */; };
+		E4AD82B91846E2FF002C1ED1 /* go_test.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E4AD82B81846E2FF002C1ED1 /* go_test.aiff */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +72,13 @@
 		03CC6E4517ACA33600D5CD87 /* Btn_Tilt_Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Btn_Tilt_Up@2x.png"; sourceTree = "<group>"; };
 		E437C19C1843C5F4006C3A89 /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		E437C19F1843C763006C3A89 /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
+		E44FF1E81846A36E006C75F7 /* ready_robot.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = ready_robot.aiff; sourceTree = "<group>"; };
+		E44FF1EA1846A545006C75F7 /* tired_robot.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tired_robot.aiff; sourceTree = "<group>"; };
+		E44FF1EC1846A9CF006C75F7 /* battery_040.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_040.aiff; sourceTree = "<group>"; };
+		E44FF1ED1846A9CF006C75F7 /* battery_060.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_060.aiff; sourceTree = "<group>"; };
+		E44FF1EE1846A9CF006C75F7 /* battery_080.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_080.aiff; sourceTree = "<group>"; };
+		E44FF1EF1846A9CF006C75F7 /* battery_100.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_100.aiff; sourceTree = "<group>"; };
+		E4AD82B81846E2FF002C1ED1 /* go_test.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = go_test.aiff; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +149,7 @@
 		03CC6E1B17ACA28500D5CD87 /* ZedWeeMe */ = {
 			isa = PBXGroup;
 			children = (
+				E44FF1E71846A35B006C75F7 /* Sounds */,
 				03CC6E3E17ACA33600D5CD87 /* Images */,
 				03CC6E2417ACA28500D5CD87 /* AppDelegate.h */,
 				03CC6E2517ACA28500D5CD87 /* AppDelegate.m */,
@@ -181,6 +196,20 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		E44FF1E71846A35B006C75F7 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				E4AD82B81846E2FF002C1ED1 /* go_test.aiff */,
+				E44FF1EC1846A9CF006C75F7 /* battery_040.aiff */,
+				E44FF1ED1846A9CF006C75F7 /* battery_060.aiff */,
+				E44FF1EE1846A9CF006C75F7 /* battery_080.aiff */,
+				E44FF1EF1846A9CF006C75F7 /* battery_100.aiff */,
+				E44FF1EA1846A545006C75F7 /* tired_robot.aiff */,
+				E44FF1E81846A36E006C75F7 /* ready_robot.aiff */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -209,6 +238,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "WowWee Group Limited";
+				TargetAttributes = {
+					03CC6E1117ACA28500D5CD87 = {
+						DevelopmentTeam = NU5AXB7577;
+					};
+				};
 			};
 			buildConfigurationList = 03CC6E0D17ACA28500D5CD87 /* Build configuration list for PBXProject "ZedWeeMe" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -232,18 +266,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44FF1E91846A36E006C75F7 /* ready_robot.aiff in Resources */,
+				E4AD82B91846E2FF002C1ED1 /* go_test.aiff in Resources */,
 				03CC6E2017ACA28500D5CD87 /* InfoPlist.strings in Resources */,
 				03CC6E2817ACA28500D5CD87 /* Default.png in Resources */,
+				E44FF1F01846A9CF006C75F7 /* battery_040.aiff in Resources */,
+				E44FF1F11846A9CF006C75F7 /* battery_060.aiff in Resources */,
 				03CC6E2A17ACA28500D5CD87 /* Default@2x.png in Resources */,
 				03CC6E2C17ACA28500D5CD87 /* Default-568h@2x.png in Resources */,
+				E44FF1F21846A9CF006C75F7 /* battery_080.aiff in Resources */,
 				03CC6E2F17ACA28500D5CD87 /* MainStoryboard.storyboard in Resources */,
 				03CC6E4617ACA33600D5CD87 /* Btn_DPad_Back@2x.png in Resources */,
 				03CC6E4717ACA33600D5CD87 /* Btn_DPad_Forward@2x.png in Resources */,
 				03CC6E4817ACA33600D5CD87 /* Btn_DPad_Left@2x.png in Resources */,
 				03CC6E4917ACA33600D5CD87 /* Btn_DPad_Right@2x.png in Resources */,
 				03CC6E4A17ACA33600D5CD87 /* Btn_Tilt_Down@2x.png in Resources */,
+				E44FF1EB1846A545006C75F7 /* tired_robot.aiff in Resources */,
 				03CC6E4B17ACA33600D5CD87 /* Btn_Tilt_Up@2x.png in Resources */,
 				03941C5217D446E800F46BF7 /* RoboMe.bundle in Resources */,
+				E44FF1F31846A9CF006C75F7 /* battery_100.aiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +382,8 @@
 		03CC6E3617ACA28500D5CD87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SRCROOT)/../RoboMe-iOS-SDK\\\\\\\"",
@@ -358,6 +401,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ZedWeeMe;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -365,6 +409,8 @@
 		03CC6E3717ACA28500D5CD87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SRCROOT)/../RoboMe-iOS-SDK\\\\\\\"",
@@ -381,6 +427,7 @@
 					"\"$(SRCROOT)/../../../../../../Library/Developer/Xcode/DerivedData/RoboMe-bsnzmcrrwwmzpldtlwmaehqycpwp/Build/Products/Debug-iphoneos\"",
 				);
 				PRODUCT_NAME = ZedWeeMe;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

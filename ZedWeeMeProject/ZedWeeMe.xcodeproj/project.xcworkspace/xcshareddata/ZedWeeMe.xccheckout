@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>18B83F75-7AA5-4BD2-B075-6556BB5AE7F0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ZedWeeMe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>84E4C488-A8B1-4C80-97AC-42CE2F0AE9FE</key>
+		<string>ssh://github.com/QuinnEbert/ZedWeeMe.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ZedWeeMeProject/ZedWeeMe.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>84E4C488-A8B1-4C80-97AC-42CE2F0AE9FE</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/QuinnEbert/ZedWeeMe.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>84E4C488-A8B1-4C80-97AC-42CE2F0AE9FE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>84E4C488-A8B1-4C80-97AC-42CE2F0AE9FE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZedWeeMe</string>
+		</dict>
+	</array>
+</dict>
+</plist>

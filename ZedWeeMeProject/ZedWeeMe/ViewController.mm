@@ -20,18 +20,58 @@
 @synthesize slt;
 @synthesize fliteController;
 @synthesize batterySpeechCt;
+@synthesize cm020;
+@synthesize cm050;
+@synthesize cm100;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    cm020 = NO;
+    cm050 = NO;
+    cm100 = NO;
+    
     // create RoboMe object
     self.roboMe = [[RoboMe alloc] initWithDelegate: self];
+    
+    [self.roboMe setDebugEnabled:NO];
     
     // start listening for events from RoboMe
     [self.roboMe startListening];
     
     // set the speech squelch:
     self.batterySpeechCt = 0;
+}
+
+- (IBAction)test_run:(id)sender {
+    [self.roboMe sendCommand:kRobot_HeadTiltAllDown];
+    [self.roboMe sendCommand:kRobot_GetBatteryLevel];
+    aTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+}
+
+-(bool) randomChance
+{
+    int val = arc4random_uniform(2);
+    NSLog(@"Got random value: %i",val);
+    if (val>0)
+        return YES;
+    return NO;
+}
+
+-(void)timerFired:(NSTimer *) theTimer
+{
+    if (!self.cm100) {
+        NSLog(@"Empty at 1.0metre");
+        [self.roboMe sendCommand:kRobot_MoveForward];
+    } else {
+        NSLog(@"Stuff at 1.0metre");
+        bool r = [self randomChance];
+        if (!r) {
+            [self.roboMe sendCommand:kRobot_TurnLeft];
+        } else {
+            [self.roboMe sendCommand:kRobot_TurnRight];
+        }
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -43,6 +83,12 @@
 	self.fliteController.target_mean = 1.2; // Change the pitch
 	self.fliteController.target_stddev = 1.5; // Change the variance
     
+    [self playAudio:@"ready_robot"];
+}
+
+- (void)playAudio: (NSString*)file {
+    self.aPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForResource:file ofType:@"aiff"]] error:nil];
+    [self.aPlayer play];
 }
 
 // Print out given text to text view
@@ -54,6 +100,8 @@
     
     // scroll to bottom
     [self.outputTextView scrollRangeToVisible:NSMakeRange([self.outputTextView.text length], 0)];
+    
+    //NSLog(@" ## %@",outputTxt);
 }
 
 #pragma mark - TTS Helpers
@@ -85,24 +133,32 @@
         
         // Update labels
         [self.edgeLabel setText: (sensors.edge ? @"ON" : @"OFF")];
+        self.cm020 = sensors.chest_20cm ? YES : NO;
         [self.chest20cmLabel setText: (sensors.chest_20cm ? @"ON" : @"OFF")];
+        self.cm050 = sensors.chest_50cm ? YES : NO;
         [self.chest50cmLabel setText: (sensors.chest_50cm ? @"ON" : @"OFF")];
+        self.cm100 = sensors.chest_100cm ? YES : NO;
         [self.cheat100cmLabel setText: (sensors.chest_100cm ? @"ON" : @"OFF")];
     } else if ([RoboMeCommandHelper isBatteryStatus:command]) {
         // Read the battery status
         if (command==kRobotIncoming_Battery100) {
             NSLog(@"Battery level reached 100 percent");
+            [self playAudio:@"battery_100"];
         } else if (command==kRobotIncoming_Battery80) {
             NSLog(@"Battery level reached 80 percent");
+            [self playAudio:@"battery_080"];
         } else if (command==kRobotIncoming_Battery60) {
             NSLog(@"Battery level reached 60 percent");
+            [self playAudio:@"battery_060"];
         } else if (command==kRobotIncoming_Battery40) {
             NSLog(@"Battery level reached 40 percent");
+            [self playAudio:@"battery_040"];
         } else if (command==kRobotIncoming_Battery20) {
             NSLog(@"Battery level reached 20 percent");
+            [self playAudio:@"tired_robot"];
         } else if (command==kRobotIncoming_Battery10) {
             NSLog(@"Battery level reached 10 percent");
-            [self batterySay:@"Batteries are critically weak, please replace my batteries!"];
+            [self playAudio:@"tired_robot"];
         }
     }
 }
