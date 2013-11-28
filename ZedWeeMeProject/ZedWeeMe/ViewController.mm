@@ -24,12 +24,18 @@
 @synthesize cm050;
 @synthesize cm100;
 
+@synthesize turning;
+@synthesize turnDir;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     cm020 = NO;
     cm050 = NO;
     cm100 = NO;
+    
+    turning = NO;
+    turnDir = 0;
     
     // create RoboMe object
     self.roboMe = [[RoboMe alloc] initWithDelegate: self];
@@ -60,16 +66,29 @@
 
 -(void)timerFired:(NSTimer *) theTimer
 {
-    if (!self.cm100) {
-        NSLog(@"Empty at 1.0metre");
+    if (!self.cm050) {
+        turning = NO;
+        turnDir = 0;
+        NSLog(@"Empty at 0.5metre");
         [self.roboMe sendCommand:kRobot_MoveForward];
     } else {
-        NSLog(@"Stuff at 1.0metre");
-        bool r = [self randomChance];
-        if (!r) {
-            [self.roboMe sendCommand:kRobot_TurnLeft];
+        NSLog(@"Stuff at 0.5metre");
+        if (!turning) {
+            turning = YES;
+            bool r = [self randomChance];
+            if (!r) {
+                [self.roboMe sendCommand:kRobot_TurnLeft];
+                turnDir = 0;
+            } else {
+                [self.roboMe sendCommand:kRobot_TurnRight];
+                turnDir = 1;
+            }
         } else {
-            [self.roboMe sendCommand:kRobot_TurnRight];
+            if (turnDir==0) {
+                [self.roboMe sendCommand:kRobot_TurnLeft];
+            } else {
+                [self.roboMe sendCommand:kRobot_TurnRight];
+            }
         }
     }
 }

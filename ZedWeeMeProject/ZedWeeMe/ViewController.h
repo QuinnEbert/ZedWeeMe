@@ -18,6 +18,8 @@
     bool cm020;
     bool cm050;
     bool cm100;
+    bool turning;
+    int turnDir;
     NSTimer *aTimer;
 }
 
@@ -34,6 +36,8 @@
 @property (nonatomic) bool cm020;
 @property (nonatomic) bool cm050;
 @property (nonatomic) bool cm100;
+@property (nonatomic) bool turning;
+@property (nonatomic) int turnDir;
 
 @property (nonatomic, strong) Slt *slt;
 @property (nonatomic, strong) FliteController *fliteController;
