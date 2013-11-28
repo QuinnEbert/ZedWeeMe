@@ -27,6 +27,8 @@
 @synthesize turning;
 @synthesize turnDir;
 
+@synthesize turnback_cur;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -66,28 +68,39 @@
 
 -(void)timerFired:(NSTimer *) theTimer
 {
-    if (!self.cm050) {
-        turning = NO;
-        turnDir = 0;
-        NSLog(@"Empty at 0.5metre");
-        [self.roboMe sendCommand:kRobot_MoveForward];
+    if (turning && turnback_cur <= TURNBACK_MAX/2) {
+        [self.roboMe sendCommand:kRobot_MoveBackward];
+        turnback_cur--;
+        if (turnback_cur < 0) {
+            turnback_cur = 0;
+            turning = NO;
+        }
     } else {
-        NSLog(@"Stuff at 0.5metre");
-        if (!turning) {
-            turning = YES;
-            bool r = [self randomChance];
-            if (!r) {
-                [self.roboMe sendCommand:kRobot_TurnLeft];
-                turnDir = 0;
-            } else {
-                [self.roboMe sendCommand:kRobot_TurnRight];
-                turnDir = 1;
-            }
+        if (!self.cm050) {
+            turning = NO;
+            turnDir = 0;
+            NSLog(@"Empty at 0.5metre");
+            [self.roboMe sendCommand:kRobot_MoveForward];
         } else {
-            if (turnDir==0) {
-                [self.roboMe sendCommand:kRobot_TurnLeft];
+            NSLog(@"Stuff at 0.5metre");
+            if (!turning) {
+                turnback_cur = TURNBACK_MAX;
+                turning = YES;
+                bool r = [self randomChance];
+                if (!r) {
+                    [self.roboMe sendCommand:kRobot_TurnLeft];
+                    turnDir = 0;
+                } else {
+                    [self.roboMe sendCommand:kRobot_TurnRight];
+                    turnDir = 1;
+                }
             } else {
-                [self.roboMe sendCommand:kRobot_TurnRight];
+                if (turnDir==0) {
+                    [self.roboMe sendCommand:kRobot_TurnLeft];
+                } else {
+                    [self.roboMe sendCommand:kRobot_TurnRight];
+                }
+                turnback_cur--;
             }
         }
     }

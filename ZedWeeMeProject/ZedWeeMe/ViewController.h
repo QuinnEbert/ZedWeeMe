@@ -9,6 +9,8 @@
 #import <RoboMe/RoboMe.h>
 #import <Slt/Slt.h>
 
+#define TURNBACK_MAX 2
+
 @class FliteController;
 
 @interface ViewController : UIViewController <RoboMeDelegate> {
@@ -20,6 +22,7 @@
     bool cm100;
     bool turning;
     int turnDir;
+    int turnback_cur;
     NSTimer *aTimer;
 }
 
@@ -38,6 +41,7 @@
 @property (nonatomic) bool cm100;
 @property (nonatomic) bool turning;
 @property (nonatomic) int turnDir;
+@property (nonatomic) int turnback_cur;
 
 @property (nonatomic, strong) Slt *slt;
 @property (nonatomic, strong) FliteController *fliteController;
