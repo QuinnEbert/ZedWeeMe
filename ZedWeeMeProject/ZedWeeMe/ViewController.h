@@ -24,6 +24,7 @@
     int turnDir;
     int turnback_cur;
     NSTimer *aTimer;
+    NSTimer *bTimer;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *outputTextView;

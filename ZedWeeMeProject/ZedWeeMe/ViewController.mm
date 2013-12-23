@@ -51,14 +51,16 @@
     self.batterySpeechCt = 0;
     
     // battery level of the iOS device
+    bool doBatMon = [UIDevice currentDevice].batteryMonitoringEnabled;
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     float batteryLevel = [UIDevice currentDevice].batteryLevel;
-    NSString *batteryLevelTextInfo = [NSString stringWithFormat:@"iOS device battery level: %f percent",batteryLevel];
+    [[UIDevice currentDevice] setBatteryMonitoringEnabled:doBatMon];
+    NSString *batteryLevelTextInfo = [NSString stringWithFormat:@"iOS device battery level: %i percent",(int)(batteryLevel*100)];
     [self displayText:batteryLevelTextInfo];
 }
 
 - (IBAction)test_run:(id)sender {
     [self.roboMe sendCommand:kRobot_HeadTiltAllDown];
-    [self.roboMe sendCommand:kRobot_GetBatteryLevel];
     aTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
 }
 
@@ -69,6 +71,11 @@
     if (val>0)
         return YES;
     return NO;
+}
+
+-(void)startDelay:(NSTimer *) theTimer
+{
+    [self.roboMe sendCommand:kRobot_GetBatteryLevel];
 }
 
 -(void)timerFired:(NSTimer *) theTimer
@@ -122,6 +129,7 @@
     
     self.aPlayer = [[AVAudioPlayer alloc] init];
     [self playAudio:@"ready_robot"];
+    bTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(startDelay:) userInfo:nil repeats:NO];
 }
 
 - (void)playAudio: (NSString*)file {
