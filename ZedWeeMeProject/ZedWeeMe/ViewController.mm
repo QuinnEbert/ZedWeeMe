@@ -49,6 +49,11 @@
     
     // set the speech squelch:
     self.batterySpeechCt = 0;
+    
+    // battery level of the iOS device
+    float batteryLevel = [UIDevice currentDevice].batteryLevel;
+    NSString *batteryLevelTextInfo = [NSString stringWithFormat:@"iOS device battery level: %f percent",batteryLevel];
+    [self displayText:batteryLevelTextInfo];
 }
 
 - (IBAction)test_run:(id)sender {
@@ -115,6 +120,7 @@
 	self.fliteController.target_mean = 1.2; // Change the pitch
 	self.fliteController.target_stddev = 1.5; // Change the variance
     
+    self.aPlayer = [[AVAudioPlayer alloc] init];
     [self playAudio:@"ready_robot"];
 }
 

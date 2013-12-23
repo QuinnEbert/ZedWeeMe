@@ -39,6 +39,7 @@
 		E47C821F18463437009F7AC9 /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E437C19C1843C5F4006C3A89 /* OpenEars.framework */; };
 		E47C82201846345C009F7AC9 /* RoboMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03941C5117D446E800F46BF7 /* RoboMe.framework */; };
 		E4AD82B91846E2FF002C1ED1 /* go_test.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E4AD82B81846E2FF002C1ED1 /* go_test.aiff */; };
+		E4DB5C9F1867AF4700B394EC /* rosiebot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4DB5C9E1867AF4700B394EC /* rosiebot.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		E44FF1EE1846A9CF006C75F7 /* battery_080.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_080.aiff; sourceTree = "<group>"; };
 		E44FF1EF1846A9CF006C75F7 /* battery_100.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_100.aiff; sourceTree = "<group>"; };
 		E4AD82B81846E2FF002C1ED1 /* go_test.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = go_test.aiff; sourceTree = "<group>"; };
+		E4DB5C9E1867AF4700B394EC /* rosiebot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rosiebot.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		03CC6E3E17ACA33600D5CD87 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E4DB5C9E1867AF4700B394EC /* rosiebot.jpg */,
 				03CC6E3F17ACA33600D5CD87 /* Buttons */,
 			);
 			path = Images;
@@ -274,6 +277,7 @@
 				E44FF1F11846A9CF006C75F7 /* battery_060.aiff in Resources */,
 				03CC6E2A17ACA28500D5CD87 /* Default@2x.png in Resources */,
 				03CC6E2C17ACA28500D5CD87 /* Default-568h@2x.png in Resources */,
+				E4DB5C9F1867AF4700B394EC /* rosiebot.jpg in Resources */,
 				E44FF1F21846A9CF006C75F7 /* battery_080.aiff in Resources */,
 				03CC6E2F17ACA28500D5CD87 /* MainStoryboard.storyboard in Resources */,
 				03CC6E4617ACA33600D5CD87 /* Btn_DPad_Back@2x.png in Resources */,
