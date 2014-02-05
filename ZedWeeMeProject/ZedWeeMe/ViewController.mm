@@ -95,8 +95,13 @@
                 self.orienting = NO;
                 [self logHollyAnn:@"0deg compass orientation completed!!!"];
             } else {
-                [self.roboMe sendCommand:kRobot_TurnRightSlowest];
-                [self logHollyAnn:[NSString stringWithFormat:@"0deg orientation: compass reads %fdg bearing, twitch right", self.compass]];
+                if (self.compass<=((COMPASS_ORIENT_HI-COMPASS_ORIENT_LO)/2)) {
+                    [self.roboMe sendCommand:kRobot_TurnLeftSlowest];
+                    [self logHollyAnn:[NSString stringWithFormat:@"0deg orientation: compass reads %fdg bearing, twitch left", self.compass]];
+                } else {
+                    [self.roboMe sendCommand:kRobot_TurnRightSlowest];
+                    [self logHollyAnn:[NSString stringWithFormat:@"0deg orientation: compass reads %fdg bearing, twitch right", self.compass]];
+                }
             }
         } else {
             if (turning && turnback_cur <= TURNBACK_MAX/2) {
@@ -153,14 +158,21 @@
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    //NSLog(@"Got updated device location!");
+    /*******
+    [self logHollyAnn:@"Got updated device location!"];
     
-    //TODO: experimentations?!?
+    float x = (float)self.locationMgr.location.coordinate.latitude;
+    float y = (float)self.locationMgr.location.coordinate.longitude;
+    [self logHollyAnn:[NSString stringWithFormat:@"  x: %f",x]];
+    [self logHollyAnn:[NSString stringWithFormat:@"  y: %f",y]];
+    *******/
+    
+    //TODO: even more experimentations?!?
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
 {
     double heading = [newHeading trueHeading];
-    NSLog(@"Updated device heading: %fdg",heading);
+    //NSLog(@"Updated device heading: %fdg",heading);
     self.compass = heading;
 }
 
