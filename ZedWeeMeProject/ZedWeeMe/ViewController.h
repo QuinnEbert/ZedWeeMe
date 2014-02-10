@@ -9,17 +9,18 @@
 #import <RoboMe/RoboMe.h>
 //#import <Slt/Slt.h>
 #import <CoreLocation/CoreLocation.h>
+#import <AVFoundation/AVFoundation.h>
 
 #define TURNBACK_MAX   2
 
 #define COMPASS_ORIENT_LO   (  0.0+(15.0/2.0))
 #define COMPASS_ORIENT_HI   (360.0-(15.0/2.0))
 
-#define DO_WEB_BASED_LOGS   0
+#define DO_WEB_BASED_LOGS   1
 
 /*@class FliteController;*/
 
-@interface ViewController : UIViewController <RoboMeDelegate,CLLocationManagerDelegate> {
+@interface ViewController : UIViewController <RoboMeDelegate,CLLocationManagerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate> {
     //Slt *slt;
     //FliteController *fliteController;
     int batterySpeechCt;
@@ -36,6 +37,8 @@
 
     double compass;
     bool orienting;
+    
+    AVCaptureSession *session;
 }
 
 @property (weak, nonatomic) IBOutlet UITextView *outputTextView;
@@ -47,6 +50,8 @@
 
 @property (nonatomic, strong) AVAudioPlayer *aPlayer;
 @property (nonatomic, retain) CLLocationManager *locationMgr;
+
+@property (nonatomic, retain) AVCaptureSession *session;
 
 @property (nonatomic) int batterySpeechCt;
 @property (nonatomic) bool cm020;
@@ -62,5 +67,8 @@
 
 //@property (nonatomic, strong) Slt *slt;
 //@property (nonatomic, strong) FliteController *fliteController;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imageBox;
+@property (weak, nonatomic) IBOutlet UIButton *powerBar;
 
 @end

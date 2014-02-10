@@ -2,4 +2,52 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ZedWeeMe/ViewController.mm"
+            timestampString = "413324249.641309"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "@implementation ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController imagePickerController:didFinishPickingMediaWithInfo:]"
+                  moduleName = "ZedWeeMe"
+                  urlString = "file:///Users/quinn/GitHub/ZedWeeMe/ZedWeeMeProject/ZedWeeMe/ViewController.mm"
+                  timestampString = "413321675.741917"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController imagePickerController:didFinishPickingMediaWithInfo:]"
+                  moduleName = "ZedWeeMe"
+                  urlString = "file:///Users/quinn/GitHub/ZedWeeMe/ZedWeeMeProject/ZedWeeMe/ViewController.mm"
+                  timestampString = "413321675.742183"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "378">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

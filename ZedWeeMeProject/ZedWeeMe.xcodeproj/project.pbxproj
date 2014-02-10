@@ -34,6 +34,9 @@
 		E47C82201846345C009F7AC9 /* RoboMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03941C5117D446E800F46BF7 /* RoboMe.framework */; };
 		E4AD82B91846E2FF002C1ED1 /* go_test.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E4AD82B81846E2FF002C1ED1 /* go_test.aiff */; };
 		E4B8CAD118A2330500CF7030 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B8CAD018A2330500CF7030 /* CoreLocation.framework */; };
+		E4B8CAD318A2B43100CF7030 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B8CAD218A2B43100CF7030 /* ImageIO.framework */; };
+		E4B8CAD618A2B6ED00CF7030 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B8CAD418A2B6ED00CF7030 /* CoreImage.framework */; };
+		E4B8CAD718A2B6ED00CF7030 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B8CAD518A2B6ED00CF7030 /* QuartzCore.framework */; };
 		E4DB5C9F1867AF4700B394EC /* rosiebot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E4DB5C9E1867AF4700B394EC /* rosiebot.jpg */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		E44FF1EF1846A9CF006C75F7 /* battery_100.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = battery_100.aiff; sourceTree = "<group>"; };
 		E4AD82B81846E2FF002C1ED1 /* go_test.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = go_test.aiff; sourceTree = "<group>"; };
 		E4B8CAD018A2330500CF7030 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E4B8CAD218A2B43100CF7030 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		E4B8CAD418A2B6ED00CF7030 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		E4B8CAD518A2B6ED00CF7030 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E4DB5C9E1867AF4700B394EC /* rosiebot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rosiebot.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B8CAD618A2B6ED00CF7030 /* CoreImage.framework in Frameworks */,
+				E4B8CAD718A2B6ED00CF7030 /* QuartzCore.framework in Frameworks */,
+				E4B8CAD318A2B43100CF7030 /* ImageIO.framework in Frameworks */,
 				E4B8CAD118A2330500CF7030 /* CoreLocation.framework in Frameworks */,
 				E437C1A01843C763006C3A89 /* Slt.framework in Frameworks */,
 				03941C4E17D43F7300F46BF7 /* Security.framework in Frameworks */,
@@ -125,6 +134,9 @@
 		03CC6E1417ACA28500D5CD87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4B8CAD418A2B6ED00CF7030 /* CoreImage.framework */,
+				E4B8CAD518A2B6ED00CF7030 /* QuartzCore.framework */,
+				E4B8CAD218A2B43100CF7030 /* ImageIO.framework */,
 				E4B8CAD018A2330500CF7030 /* CoreLocation.framework */,
 				E437C19F1843C763006C3A89 /* Slt.framework */,
 				E437C19C1843C5F4006C3A89 /* OpenEars.framework */,
