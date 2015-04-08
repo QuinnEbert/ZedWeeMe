@@ -16,7 +16,7 @@
 #define COMPASS_ORIENT_LO   (  0.0+(15.0/2.0))
 #define COMPASS_ORIENT_HI   (360.0-(15.0/2.0))
 
-#define DO_WEB_BASED_LOGS   1
+#define DO_WEB_BASED_LOGS   0
 
 /*@class FliteController;*/
 

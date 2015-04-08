@@ -370,6 +370,7 @@
 		03CC6E3617ACA28500D5CD87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -390,6 +391,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ZedWeeMe;
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -397,6 +399,7 @@
 		03CC6E3717ACA28500D5CD87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv7;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -416,6 +419,7 @@
 				);
 				PRODUCT_NAME = ZedWeeMe;
 				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

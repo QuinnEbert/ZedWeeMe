@@ -292,7 +292,7 @@ UIImage *scaleAndRotateImage(UIImage *image)
 - (IBAction)test_run:(id)sender {
     [self.roboMe sendCommand:kRobot_HeadReset];
     self.orienting = YES;
-    aTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    aTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
     //[self captureFrame];
 }
 
@@ -316,25 +316,26 @@ UIImage *scaleAndRotateImage(UIImage *image)
 
 -(void)timerFired:(NSTimer *) theTimer
 {
-    if (!logging) {
+    //if (!logging) {
         if (self.orienting) {
             if (self.compass>=COMPASS_ORIENT_HI||self.compass<=COMPASS_ORIENT_LO) {
                 [self.roboMe sendCommand:kRobot_Stop];
                 self.orienting = NO;
                 [self logHollyAnn:@"0deg compass orientation completed!!!"];
-                logging = YES;
+                //logging = YES;
             } else {
                 if (self.compass<=((COMPASS_ORIENT_HI-COMPASS_ORIENT_LO)/2)) {
-                    [self.roboMe sendCommand:kRobot_TurnLeftSlowest];
+                    [self.roboMe sendCommand:kRobot_TurnLeft];
                     [self logHollyAnn:[NSString stringWithFormat:@"0deg orientation: compass reads %fdg bearing, twitch left", self.compass]];
                 } else {
-                    [self.roboMe sendCommand:kRobot_TurnRightSlowest];
+                    [self.roboMe sendCommand:kRobot_TurnRight];
                     [self logHollyAnn:[NSString stringWithFormat:@"0deg orientation: compass reads %fdg bearing, twitch right", self.compass]];
                 }
             }
         } else {
+            NSLog(@"not orienting, main loop");
             if (turning && turnback_cur <= TURNBACK_MAX/2) {
-                [self.roboMe sendCommand:kRobot_MoveBackward];
+                [self.roboMe sendCommand:kRobot_MoveBackwardSlowest];
                 turnback_cur--;
                 if (turnback_cur < 0) {
                     [self logHollyAnn:@"Just finished turning back!"];
@@ -344,15 +345,16 @@ UIImage *scaleAndRotateImage(UIImage *image)
                     [self logHollyAnn:@"In the midst of turning back!"];
                 }
             } else {
-                if (!self.cm050) {
+                if (!self.cm020) {
                     turning = NO;
                     turnDir = 0;
-                    //NSLog(@"Empty at 0.5metre");
-                    [self logHollyAnn:@"Nothing 0.5 metres away, move forward!"];
-                    [self.roboMe sendCommand:kRobot_MoveForward];
+                    //NSLog(@"Empty at 0.2metre");
+                    [self logHollyAnn:@"Nothing 0.2 metres away, move forward!"];
+                    //[self.roboMe sendCommand:kRobot_MoveForward];
+                    [self.roboMe sendCommand:kRobot_MoveForwardFastest];
                 } else {
                     //NSLog(@"Stuff at 0.5metre");
-                    [self logHollyAnn:@"Detected object 0.5 metres away..."];
+                    [self logHollyAnn:@"Detected object 0.2 metres away..."];
                     if (!turning) {
                         turnback_cur = TURNBACK_MAX;
                         turning = YES;
@@ -378,7 +380,7 @@ UIImage *scaleAndRotateImage(UIImage *image)
                 }
             }
         }
-    }
+    //}
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -469,8 +471,9 @@ UIImage *scaleAndRotateImage(UIImage *image)
 }
 
 - (void)logHollyAnn: (NSString *)msg {
-    self.logging = YES;
     NSLog(@"%@",msg);
+    if (!DO_WEB_BASED_LOGS) return;
+    self.logging = YES;
     if (DO_WEB_BASED_LOGS) {
         NSString *msgFull = [NSString stringWithFormat:@"%@",[[msg stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@"\r" withString:@""]];
         NSString *m = [NSString stringWithFormat:@"http://192.168.1.25/~quinn/weeloggy/?msg=%@",[self urlEncode:msgFull]];
